@@ -106,7 +106,7 @@ const Menu = () => {
         localStorage.removeItem("user");
 
         window.location.href =
-          "https://investify2026.onrender.com/login";
+          "https://investify2026.onrender.com";
       }}
     >
       Logout
