@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200">
+  <!-- Modern upward-growth symbol -->
+  <g transform="translate(30,20)">
+    <circle cx="70" cy="80" r="60" fill="none" stroke="#2D7FF9" stroke-width="10"/>
+    
+    <path d="M35 105 L65 75 L88 95 L120 45" 
+          fill="none" stroke="#2D7FF9" stroke-width="12" 
+          stroke-linecap="round" stroke-linejoin="round"/>
+          
+    <path d="M103 45 H120 V62" 
+          fill="none" stroke="#2D7FF9" stroke-width="12"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Brand name -->
+  <text x="180" y="115"
+        font-family="Poppins, Arial, sans-serif"
+        font-size="72"
+        font-weight="700"
+        fill="#1F2937">
+        Investify
+  </text>
+
+  <text x="185" y="150"
+        font-family="Arial, sans-serif"
+        font-size="22"
+        fill="#6B7280">
+        Invest Smarter • Grow Faster
+  </text>
+</svg>
