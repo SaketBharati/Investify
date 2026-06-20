@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("https://investify-y1ph.onrender.com/login", {
+      const res = await axios.post("https://investify-dashboard-r5qx.onrender.com/login", {
         email,
         password,
       });
