@@ -106,7 +106,7 @@ const Menu = () => {
         localStorage.removeItem("user");
 
         window.location.href =
-          "http://localhost:3000/login";
+          "https://investify-dashboard-r5qx.onrender.com/login";
       }}
     >
       Logout

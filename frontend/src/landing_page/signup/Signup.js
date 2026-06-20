@@ -27,7 +27,7 @@ const Signup = () => {
 
         localStorage.setItem("user", JSON.stringify(res.data.user));
 
-        window.location.href = `http://localhost:3001?token=${res.data.token}&username=${encodeURIComponent(
+        window.location.href = `https://investify-dashboard-r5qx.onrender.com?token=${res.data.token}&username=${encodeURIComponent(
           res.data.user.username,
         )}&email=${encodeURIComponent(res.data.user.email)}`;
       }, 1000);

@@ -29,7 +29,7 @@ if (token) {
 const storedToken = localStorage.getItem("token");
 
 if (!storedToken) {
-  window.location.href = "http://localhost:3000/login";
+  window.location.href = "https://investify-dashboard-r5qx.onrender.com/login";
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
