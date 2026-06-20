@@ -13,7 +13,7 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("https://investify-y1ph.onrender.com/signup", {
+      const res = await axios.post("https://investify2026.onrender.com/signup", {
         username,
         email,
         password,
@@ -146,7 +146,7 @@ const Signup = () => {
   className="text-center text-muted mb-0"
   style={{ fontSize: "14px" }}
 >
-  © 2026 Zerodha Clone
+  © 2026 Investify
 </p>
         </div>
         
