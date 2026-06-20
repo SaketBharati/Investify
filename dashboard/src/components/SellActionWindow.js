@@ -18,7 +18,7 @@ const SellActionWindow = ({ uid }) => {
     const token = localStorage.getItem("token");
 
     axios
-      .get(`http://localhost:8080/holding/${uid}`,
+      .get(`https://investify-y1ph.onrender.com/holding/${uid}`,
         {
         headers: {
           Authorization: token,
@@ -41,7 +41,7 @@ const SellActionWindow = ({ uid }) => {
   const handleSellClick = () => {
     const token = localStorage.getItem("token");
     axios
-      .post("http://localhost:8080/newOrder", {
+      .post("https://investify-y1ph.onrender.com/newOrder", {
         name: uid,
         qty: stockQuantity,
         price: stockPrice,

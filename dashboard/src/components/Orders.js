@@ -9,7 +9,7 @@ const Orders = () => {
     const token = localStorage.getItem("token");
 
 axios.get(
-  "http://localhost:8080/orders",
+  "https://investify-y1ph.onrender.com/orders",
   {
     headers: {
       Authorization: token,

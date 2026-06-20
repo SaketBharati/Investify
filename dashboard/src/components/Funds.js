@@ -27,7 +27,7 @@ const [alertType,
 
     axios
       .get(
-        "http://localhost:8080/balance",
+        "https://investify-y1ph.onrender.com/balance",
         {
           headers: {
             Authorization: token,
@@ -48,7 +48,7 @@ const [alertType,
 const handleAddFunds = () => {
 
   axios.post(
-    "http://localhost:8080/addFunds",
+    "https://investify-y1ph.onrender.com/addFunds",
     {
       amount,
     },
@@ -89,7 +89,7 @@ const handleWithdrawFunds =
 () => {
 
   axios.post(
-    "http://localhost:8080/withdrawFunds",
+    "https://investify-y1ph.onrender.com/withdrawFunds",
     {
       amount,
     },

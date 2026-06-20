@@ -13,7 +13,7 @@ const Positions = () => {
 
     axios
       .get(
-        "http://localhost:8080/addPositions",
+        "https://investify-y1ph.onrender.com/addPositions",
         {
           headers: {
             Authorization: token,

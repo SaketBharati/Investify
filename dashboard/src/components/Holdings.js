@@ -12,7 +12,7 @@ useEffect(()=>{
   const token = localStorage.getItem("token");
 
   axios.get(
-  "http://localhost:8080/addHoldings",
+  "https://investify-y1ph.onrender.com/addHoldings",
   {
     headers: {
       Authorization: token,

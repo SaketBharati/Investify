@@ -13,7 +13,7 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:8080/signup", {
+      const res = await axios.post("https://investify-y1ph.onrender.com/signup", {
         username,
         email,
         password,
