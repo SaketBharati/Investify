@@ -2,55 +2,23 @@ import React from "react";
 
 function Hero() {
   return (
-    <div className="container">
-      <div className="row p-5 border-bottom mb-5">
-        <h1 className="fs-2 text-center mt-5">
-          We pioneered the discount broking model in India.
-          <br />
-          Now, we are breaking ground with out technology.
-        </h1>
-      </div>
-      <div
-        className="row mt-5  text-muted"
-        style={{ fontSize: "1.2em", lineHeight: "1.8" }}
-      >
-        <div className="col p-5">
-          <p>
-            We launched Investify with a vision to make investing simple,
-            accessible, and technology-driven for everyone. Our mission is to
-            empower investors with intuitive tools for portfolio management,
-            market tracking, and seamless trading experiences.
-          </p>
-          <p>
-            Built with a focus on performance, reliability, and user experience,
-            Investify brings together modern technology and smart design to help
-            users manage their investments efficiently.
-          </p>
-          <p>
-            Whether you're tracking your portfolio, managing funds, monitoring
-            watchlists, or exploring market opportunities, Investify provides a
-            powerful and streamlined platform for your investment journey.
-          </p>
+    <div className="iv-editorial-page">
+      <section className="container iv-page-hero iv-about-hero">
+        <div className="iv-page-hero-mark" aria-hidden="true"><span>IV</span><i /></div>
+        <p className="iv-section-label">About Investify</p>
+        <h1>Investing feels clearer when the details are easier to see.</h1>
+        <div className="iv-about-intro">
+          <p>Investify brings everyday investment workflows into a considered, approachable experience.</p>
+          <p>Follow a watchlist, review holdings and positions, and keep track of orders and funds in one place. The goal is a calmer way to understand the pieces of your investing activity.</p>
         </div>
-        <div className="col p-5">
-          <p>
-            In addition, we run a number of popular open online educational and
-            community initiatives to empower retail traders and investors.{" "}
-          </p>
-          <p>
-            <a href="" style={{ textDecoration: "none" }}>
-              Rainmatter
-            </a>
-            , our fintech fund and incubator, has invested in several fintech
-            startups with the goal of growing the Indian capital markets.{" "}
-          </p>
-          <p>
-            And yet, we are always up to something new every day. Catch up on
-            the latest updates on our blog or see what the media is saying about
-            us or learn more about our business and product philosophies.{" "}
-          </p>
+      </section>
+      <section className="iv-about-principle">
+        <div className="container iv-about-principle-inner">
+          <p className="iv-section-label">The idea</p>
+          <blockquote>Make the work of investing easier to follow, one decision at a time.</blockquote>
+          <p>Investify is designed to make room for questions and clarity, without promising outcomes or making decisions for you.</p>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

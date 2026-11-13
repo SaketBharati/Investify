@@ -1,35 +1,26 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function Hero() {
+function Hero({ query, onSearch, onSubmit }) {
   return (
-    <section className="container-fluid" id="supportHero">
-      <div className="p-5 " id="supportWrapper">
-        <h4>Support Portal</h4>
-        <a href="">Track Tickets</a>
-      </div>
-      <div className="row p-5 m-3">
-        <div className="col-6 p-3">
-          <h1 className="fs-3">
-            Search for an answer or browse help topics to create a ticket
-          </h1>
-          <input placeholder="Eg. how do I activate F&O" />
-          <br />
-          <a href="">Track account opening</a>
-          <a href="">Track segment activation</a>
-          <a href="">Intraday margins</a>
-          <a href="">Kite user manual</a>
+    <section className="iv-support-hero iv-support-hero-complete">
+      <div className="container iv-support-hero-inner">
+        <div className="iv-support-copy">
+          <p className="iv-section-label">Investify support centre</p>
+          <h1>Good answers make the next step clearer.</h1>
+          <p>Search quick guidance for your account, portfolio, watchlists, orders and funds.</p>
+          <form className="iv-support-search" role="search" onSubmit={onSubmit}>
+            <label htmlFor="support-search">What can we help you find?</label>
+            <div><i className="fa-solid fa-magnifying-glass" aria-hidden="true"/><input id="support-search" type="search" value={query} onChange={(event) => onSearch(event.target.value)} placeholder="Try “orders” or “watchlist”" aria-controls="support-faqs"/><button type="submit" aria-label="Search help topics">Search</button></div>
+            <span>Search this demo help centre. No ticket will be submitted.</span>
+          </form>
         </div>
-        <div className="col-6 p-3">
-          <h1 className="fs-3">Featured</h1>
-          <ol>
-            <li>
-              <a href="">Current Takeovers and Delisting - January 2024</a>
-            </li>
-            <li>
-              <a href="">Latest Intraday leverages - MIS & CO</a>
-            </li>
-          </ol>
-        </div>
+        <aside className="iv-support-contact iv-support-contact-complete">
+          <span className="iv-support-mark" aria-hidden="true"><i/><i/></span>
+          <p>Account question?</p>
+          <Link to="/login" className="iv-text-link">Sign in to your account <i className="fa-solid fa-arrow-right-long" aria-hidden="true" /></Link>
+          <small>Public demo support does not access account data.</small>
+        </aside>
       </div>
     </section>
   );

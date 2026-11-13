@@ -1,36 +1,24 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
 function Stats() {
-    return ( 
-       <div className='container'>
-        <div className='row'>
-
-            <div className='col-6 p-5'>
-                <h1>Invest with Confidence</h1>
-
-                <h3 className='mt-5'>Investor-Centric Design</h3>
-                <p className='text-muted'>Built with simplicity and transparency at its core. Our platform helps investors navigate the market confidently with an intuitive and user-friendly experience.</p>
-
-                <h3>Fast & Secure Trading</h3>
-                <p className='text-muted'>Execute trades seamlessly with a reliable infrastructure designed for speed, security, and uninterrupted market access.</p>
-
-                <h3>Powerful Investment Tools</h3>
-                <p className='text-muted'>Access real-time market data, portfolio insights, watchlists, and analytics to make informed investment decisions.</p>
-
-                <h3>Learn & Grow</h3>
-                <p className='text-muted'>Explore educational resources, market updates, and investment guides designed to help you become a smarter investor over time.</p>
-            </div>
-            <div className='col-6 p-5'>
-                <img src='media/images/ecosystem.png' alt='Stats' style={{width:"90%"}}/>
-                <div className='ml-5 fs-5'>
-                    <a href='' className='mx-5'style={{textDecoration:"none"}}>Explore our products<i class="fa-solid fa-right-long"></i></a>
-                <a href='' style={{textDecoration:"none"}}>Try Kite demo<i class="fa-solid fa-right-long"></i></a>
-                </div>
-                
-            </div>
+  return (
+    <section className="iv-clarity-section">
+      <div className="container iv-clarity-layout">
+        <div className="iv-clarity-heading">
+          <p className="iv-section-label">Designed for understanding</p>
+          <h2>More perspective.<br /><em>Less noise.</em></h2>
+          <p>Markets move quickly. Your tools should make it easier to see what is happening across your own investing activity.</p>
+          <Link to="/products" className="iv-text-link">See how the platform works <i className="fa-solid fa-arrow-right-long" aria-hidden="true" /></Link>
         </div>
-       </div>
-     );
+        <div className="iv-clarity-notes">
+          <div className="iv-clarity-note"><span className="iv-note-mark" aria-hidden="true">A</span><div><h3>See the whole picture</h3><p>Move between the watchlists, holdings, positions, orders and funds that make up your investing workflow.</p></div></div>
+          <div className="iv-clarity-note"><span className="iv-note-mark" aria-hidden="true">B</span><div><h3>Follow your own priorities</h3><p>Use watchlists to keep the instruments you care about close at hand.</p></div></div>
+          <div className="iv-clarity-note"><span className="iv-note-mark" aria-hidden="true">C</span><div><h3>Make room to learn</h3><p>Review each part of the process at your pace. Investing decisions remain yours.</p></div></div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Stats;
