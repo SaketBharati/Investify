@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { API_URL } from "../config";
 
 import GeneralContext from "./GeneralContext";
 import "./BuyActionWindow.css";
@@ -18,7 +19,7 @@ const SellActionWindow = ({ uid }) => {
     const token = localStorage.getItem("token");
 
     axios
-      .get(`https://investify-y1ph.onrender.com/holding/${uid}`,
+      .get(`${API_URL}/holding/${uid}`,
         {
         headers: {
           Authorization: token,
@@ -41,7 +42,7 @@ const SellActionWindow = ({ uid }) => {
   const handleSellClick = () => {
     const token = localStorage.getItem("token");
     axios
-      .post("https://investify-y1ph.onrender.com/newOrder", {
+      .post(`${API_URL}/newOrder`, {
         name: uid,
         qty: stockQuantity,
         price: stockPrice,

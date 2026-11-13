@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FRONTEND_URL } from "../config";
 
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
@@ -105,8 +106,7 @@ const Menu = () => {
         localStorage.removeItem("token");
         localStorage.removeItem("user");
 
-        window.location.href =
-          "https://investify2026.onrender.com";
+        window.location.href = FRONTEND_URL;
       }}
     >
       Logout

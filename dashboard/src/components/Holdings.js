@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from "react";
 import axios from "axios";
+import { API_URL } from "../config";
 import { VerticalGraph } from "./VerticalGraph";
 
 
@@ -12,7 +13,7 @@ useEffect(()=>{
   const token = localStorage.getItem("token");
 
   axios.get(
-  "https://investify-y1ph.onrender.com/addHoldings",
+  `${API_URL}/addHoldings`,
   {
     headers: {
       Authorization: token,

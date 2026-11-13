@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import axios from "axios";
+import { API_URL } from "../config";
 
 import GeneralContext from "./GeneralContext";
 
@@ -15,7 +16,7 @@ const BuyActionWindow = ({ uid }) => {
   const handleBuyClick = () => {
     const token = localStorage.getItem("token");
 
-    axios.post("https://investify-y1ph.onrender.com/newOrder", {
+    axios.post(`${API_URL}/newOrder`, {
       name: uid,
       qty: stockQuantity,
       price: stockPrice,

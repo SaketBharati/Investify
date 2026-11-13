@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { API_URL } from "../config";
 
 const Positions = () => {
 
@@ -13,7 +14,7 @@ const Positions = () => {
 
     axios
       .get(
-        "https://investify-y1ph.onrender.com/addPositions",
+        `${API_URL}/addPositions`,
         {
           headers: {
             Authorization: token,
