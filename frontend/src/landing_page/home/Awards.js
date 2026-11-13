@@ -1,42 +1,32 @@
-import React from 'react';
+import React from "react";
+
+const workflows = [
+  { title: "Watchlists", description: "Keep the instruments you follow easy to find." },
+  { title: "Holdings & positions", description: "Review what you own and the positions you are managing." },
+  { title: "Orders & funds", description: "Keep track of order activity and the funds connected to your account." },
+];
 
 function Awards() {
-    return ( 
-        <div className='container mt-5'>
-            <div className='row'>
-                <div className='col-6 p-5'>
-                    <img src='media/images/largestBroker.svg' alt='Awards Img'/>
-                </div>
-                <div className='col-6 p-5 mt-3'>
-                    <h1>Trade. Invest. Build Wealth.</h1>
-                    <p className='mb-5'>Experience a modern trading platform crafted for today's investors. Access market opportunities, track your portfolio in real time, and make informed investment decisions with ease.</p>
-                    <div className='row'>
-                        <div className='col-6'>
-                            <ul>
-                                <li>Equity Trading</li>
-
-                                <li>IPO Marketplace</li>
-
-                                <li>Mutual Funds</li>
-                            </ul>
-                        </div>
-                        <div className='col-6'>
-                            <ul>
-                                <li>Bonds & Securities</li>
-
-                                <li>Market Research</li>
-
-                                <li>Wealth Tracking</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <img src='media/images/pressLogos.png' style={{width:"90%"}}/>
-                    
-
-                </div>
-            </div>
+  return (
+    <section className="iv-workflows-section" aria-labelledby="workflow-title">
+      <div className="container iv-section-grid">
+        <div className="iv-section-intro">
+          <p className="iv-section-label">A place for the moving parts</p>
+          <h2 id="workflow-title">Everything you follow, in context.</h2>
+          <p>Investing has enough to keep up with. Investify brings everyday portfolio and trading workflows into one clear view.</p>
         </div>
-     );
+        <div className="iv-workflow-list">
+          {workflows.map((item, index) => (
+            <article className="iv-workflow-row" key={item.title}>
+              <span className="iv-workflow-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+              <div><h3>{item.title}</h3><p>{item.description}</p></div>
+              <span className="iv-row-rule" aria-hidden="true" />
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Awards;

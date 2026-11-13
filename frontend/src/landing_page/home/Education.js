@@ -1,33 +1,20 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
 function Education() {
-    return ( 
-        <div className='container'>
-            <div className='row '>
-                <div className='col-6 '>
-                    <img src="media/images/education.svg" style={{ width: "70%" }} />
-                </div>
-                
-                <div className='col-6 mt-2'>
-                   <h1 className="mb-3 fs-2">Free and open market education </h1>
-                   <p>Varsity, the largest online stock market education book in the world
-            covering everything from the basics to advanced trading.</p>
-
-                <a href="" style={{ textDecoration: "none" }}>
-            Varsity <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-          </a>
-
-                <p className="mt-5">
-            TradingQ&A, the most active trading and investment community in
-            India for all your market related queries.
-          </p>
-             <a href="" style={{ textDecoration: "none" }}>
-            TradingQ&A <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-          </a>
-                </div>
-            </div>
+  return (
+    <section className="iv-learning-section">
+      <div className="container iv-learning-layout">
+        <div className="iv-learning-emblem" aria-hidden="true"><span>Learn</span><span>at</span><span>your</span><span>pace</span></div>
+        <div className="iv-learning-copy">
+          <p className="iv-section-label">For the curious investor</p>
+          <h2>Start with the parts you can understand.</h2>
+          <p>A watchlist helps you follow instruments. Holdings show what is in your portfolio. Orders show activity you have placed. Learn the language, then decide what matters to you.</p>
+          <Link to="/support" className="iv-text-link">Visit the support portal <i className="fa-solid fa-arrow-right-long" aria-hidden="true" /></Link>
         </div>
-     );
+      </div>
+    </section>
+  );
 }
 
 export default Education;

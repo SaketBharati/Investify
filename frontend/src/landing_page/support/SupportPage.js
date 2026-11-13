@@ -1,14 +1,17 @@
-import React from 'react';
-import Navbar from '../Navbar';
+import React, { useState } from 'react';
 import CreateTicket from './CreateTicket';
 import Hero from './Hero';
-import Footer from '../Footer';
 
 function SupportPage() {
+    const [query, setQuery] = useState("");
+    const submitSearch = (event) => event.preventDefault();
+
     return ( 
         <>
-        <Hero />
-        <CreateTicket />
+        <main className="iv-support-page">
+          <Hero query={query} onSearch={setQuery} onSubmit={submitSearch} />
+          <CreateTicket query={query} onClear={() => setQuery("")} />
+        </main>
         
         
         </>

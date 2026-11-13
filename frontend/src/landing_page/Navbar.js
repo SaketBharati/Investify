@@ -1,71 +1,46 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+
+const links = [
+  ["About", "/about"],
+  ["Products", "/products"],
+  ["Pricing", "/pricing"],
+  ["Support", "/support"],
+  ["Login", "/login"],
+];
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
+
   return (
-    <nav
-      class="navbar navbar-expand-lg border-bottom   "
-      style={{ backgroundColor: "#FFF" }}
-    >
-      <div class="container p-2">
-        <Link class="navbar-brand" to="/">
-          <img
-            src="media/images/logo.svg"
-            alt="logo"
-            style={{ width: "40%" }}
-          />
+    <header className="navbar-shell">
+      <nav className="container site-navbar navbar navbar-expand-md" aria-label="Main navigation">
+        <Link className="site-brand navbar-brand me-auto" to="/" onClick={closeMenu}>
+          <img src="/media/images/logo.svg" alt="Investify home" />
         </Link>
         <button
-          class="navbar-toggler"
+          className={`nav-toggle${menuOpen ? " is-open" : ""}`}
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={menuOpen}
+          aria-controls="site-navigation"
+          onClick={() => setMenuOpen((open) => !open)}
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="nav-toggle-lines" aria-hidden="true"><i /><i /></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <form class="d-flex" role="search">
-            <ul class="navbar-nav  mb-lg-0">
-              
-              <li class="nav-item">
-                <Link class="nav-link active" to="/about">
-                  About
-                </Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link active" to="/products">
-                  Product
-                </Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link active" to="/pricing">
-                  Pricing
-                </Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link active" to="/support">
-                  Support
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link active" to="/login">
-                  Login
-                </Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link active" aria-current="page" to="/signup">
-                  Signup
-                </Link>
-              </li>
-             
-            </ul>
-          </form>
+        <div className={`site-nav-wrap navbar-collapse justify-content-end${menuOpen ? " is-open" : ""}`} id="site-navigation">
+          <div className="site-nav navbar-nav align-items-md-center">
+            {links.map(([label, path]) => (
+              <NavLink key={path} to={path} onClick={closeMenu} className={({ isActive }) => `nav-link${isActive ? " active" : ""}`}>
+                {label}
+              </NavLink>
+            ))}
+            <NavLink className="nav-link signup-link" to="/signup" onClick={closeMenu}>Open an account</NavLink>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }
 

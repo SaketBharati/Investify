@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 const Signup = () => {
@@ -64,7 +64,7 @@ const Signup = () => {
 
           <h3 className="text-center mb-4">Create Your Account</h3>
           <p className="text-center text-muted mb-4">
-            Create your trading account
+            Create your Investify account
           </p>
 
           {alertMessage && (
@@ -75,10 +75,13 @@ const Signup = () => {
 
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <label className="form-label">Username</label>
+              <label className="form-label" htmlFor="signup-username">Username</label>
 
               <input
                 type="text"
+                id="signup-username"
+                name="username"
+                autoComplete="username"
                 className="form-control"
                 placeholder="Enter your username"
                 value={username}
@@ -88,10 +91,13 @@ const Signup = () => {
             </div>
 
             <div className="mb-3">
-              <label className="form-label">Email</label>
+              <label className="form-label" htmlFor="signup-email">Email</label>
 
               <input
                 type="email"
+                id="signup-email"
+                name="email"
+                autoComplete="email"
                 className="form-control"
                 placeholder="Enter your email"
                 value={email}
@@ -101,11 +107,14 @@ const Signup = () => {
             </div>
 
             <div className="mb-3">
-              <label className="form-label">Password</label>
+              <label className="form-label" htmlFor="signup-password">Password</label>
 
               <div className="input-group">
                 <input
                   type={showPassword ? "text" : "password"}
+                  id="signup-password"
+                  name="password"
+                  autoComplete="new-password"
                   className="form-control"
                   placeholder="Create a password"
                   value={password}
@@ -116,6 +125,8 @@ const Signup = () => {
                 <button
                   type="button"
                   className="btn btn-outline-secondary"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  aria-pressed={showPassword}
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? "Hide" : "Show"}
@@ -123,7 +134,7 @@ const Signup = () => {
               </div>
             </div>
 
-            <button className="btn btn-primary w-100 py-2 fw-bold">
+            <button type="submit" className="btn btn-primary w-100 py-2 fw-bold">
               Sign Up
             </button>
 
@@ -146,7 +157,7 @@ const Signup = () => {
   className="text-center text-muted mb-0"
   style={{ fontSize: "14px" }}
 >
-  © 2026 Zerodha Clone
+  © 2026 Investify
 </p>
         </div>
         
