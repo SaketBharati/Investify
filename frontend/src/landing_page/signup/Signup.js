@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { API_URL, DASHBOARD_URL } from "../../config";
 
 const Signup = () => {
   const [alertMessage, setAlertMessage] = useState("");
@@ -13,7 +14,7 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("https://investify-y1ph.onrender.com/signup", {
+      const res = await axios.post(`${API_URL}/signup`, {
         username,
         email,
         password,
@@ -27,7 +28,7 @@ const Signup = () => {
 
         localStorage.setItem("user", JSON.stringify(res.data.user));
 
-        window.location.href = `https://investify-dashboard-r5qx.onrender.com?token=${res.data.token}&username=${encodeURIComponent(
+        window.location.href = `${DASHBOARD_URL}?token=${res.data.token}&username=${encodeURIComponent(
           res.data.user.username,
         )}&email=${encodeURIComponent(res.data.user.email)}`;
       }, 1000);

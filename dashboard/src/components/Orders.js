@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { API_URL } from "../config";
 
 const Orders = () => {
 
@@ -9,7 +10,7 @@ const Orders = () => {
     const token = localStorage.getItem("token");
 
 axios.get(
-  "https://investify-y1ph.onrender.com/orders",
+  `${API_URL}/orders`,
   {
     headers: {
       Authorization: token,

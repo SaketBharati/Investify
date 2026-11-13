@@ -4,6 +4,7 @@ import React, {
 } from "react";
 
 import axios from "axios";
+import { API_URL } from "../config";
 
 const Funds = () => {
   const [amount, setAmount] =
@@ -27,7 +28,7 @@ const [alertType,
 
     axios
       .get(
-        "https://investify-y1ph.onrender.com/balance",
+        `${API_URL}/balance`,
         {
           headers: {
             Authorization: token,
@@ -48,7 +49,7 @@ const [alertType,
 const handleAddFunds = () => {
 
   axios.post(
-    "https://investify-y1ph.onrender.com/addFunds",
+    `${API_URL}/addFunds`,
     {
       amount,
     },
@@ -89,7 +90,7 @@ const handleWithdrawFunds =
 () => {
 
   axios.post(
-    "https://investify-y1ph.onrender.com/withdrawFunds",
+    `${API_URL}/withdrawFunds`,
     {
       amount,
     },

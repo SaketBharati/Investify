@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 import Home from "./components/Home";
+import { DASHBOARD_URL } from "./config";
 
 const params = new URLSearchParams(window.location.search);
 
@@ -29,7 +30,7 @@ if (token) {
 const storedToken = localStorage.getItem("token");
 
 if (!storedToken) {
-  window.location.href = "https://investify-dashboard-r5qx.onrender.com/login";
+  window.location.href = `${DASHBOARD_URL}/login`;
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
