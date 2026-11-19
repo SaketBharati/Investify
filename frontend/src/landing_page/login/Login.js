@@ -1,6 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
-import { API_URL, DASHBOARD_URL } from "../../config";
+import { api } from "../../api";
+import { DASHBOARD_URL } from "../../config";
 
 const Login = () => {
   const [alertMessage, setAlertMessage] = useState("");
@@ -9,12 +9,14 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] =
   useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     try {
-      const res = await axios.post(`${API_URL}/login`, {
+      const res = await api.post("/login", {
         email,
         password,
       });
@@ -22,23 +24,16 @@ const Login = () => {
       setAlertType("success");
       setAlertMessage("Login Successful");
 
-      setTimeout(() => {
-        localStorage.setItem("token", res.data.token);
-
-        localStorage.setItem("user", JSON.stringify(res.data.user));
-
-        window.location.href = `${DASHBOARD_URL}?token=${res.data.token}&username=${encodeURIComponent(
-          res.data.user.username,
-        )}&email=${encodeURIComponent(res.data.user.email)}`;
-      }, 1000);
+      if (!res.data.handoffCode) throw new Error("Sign-in could not be completed. Please try again.");
+      window.location.replace(`${DASHBOARD_URL}?code=${encodeURIComponent(res.data.handoffCode)}`);
     } catch (err) {
-      console.log(err);
-
       setAlertType("danger");
 
       setAlertMessage(
         err.response?.data?.message || err.message || "Login Failed",
       );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -148,8 +143,9 @@ const Login = () => {
       <button
         type="submit"
         className="btn btn-primary w-100 py-2 fw-bold"
+        disabled={isSubmitting}
       >
-        Login
+        {isSubmitting ? "Signing in…" : "Login"}
       </button>
 
       <p className="text-center mt-3 mb-0">

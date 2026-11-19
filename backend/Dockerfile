@@ -1,6 +1,8 @@
 # 1. Select the base image
 FROM node:20-alpine
 
+ENV NODE_ENV=production
+
 # 2. Set the working directory inside the container
 WORKDIR /app
 

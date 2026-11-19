@@ -76,6 +76,7 @@ const WatchList = () => {
   {filteredWatchlist.length} / 50
 </span>
       </div>
+      <p className="text-muted px-3">Demo watchlist and sample prices. This list is not saved to your account.</p>
 
       <ul className="list">
         {filteredWatchlist.map((stock,index)=>{
@@ -106,7 +107,7 @@ const WatchListItem= ({stock})=>{
 
         <p className={stock.isDown ? "down" : "up"}>{stock.name}</p>
         <div className="item-info">
-          <span className="percent" className={stock.isDown ? "down" : "up"}>{stock.percent}</span>
+          <span className={`percent ${stock.isDown ? "down" : "up"}`}>{stock.percent}</span>
           {stock.isDown ? 
           (<KeyboardArrowDown className="down"/> ): (<KeyboardArrowUp className="up" />)}
           <span className="price">{stock.price}</span>
