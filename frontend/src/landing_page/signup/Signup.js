@@ -1,6 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
-import { API_URL, DASHBOARD_URL } from "../../config";
+import { api } from "../../api";
+import { DASHBOARD_URL } from "../../config";
 
 const Signup = () => {
   const [alertMessage, setAlertMessage] = useState("");
@@ -9,12 +9,14 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     try {
-      const res = await axios.post(`${API_URL}/signup`, {
+      const res = await api.post("/signup", {
         username,
         email,
         password,
@@ -23,21 +25,14 @@ const Signup = () => {
       setAlertType("success");
       setAlertMessage("Account created successfully");
 
-      setTimeout(() => {
-        localStorage.setItem("token", res.data.token);
-
-        localStorage.setItem("user", JSON.stringify(res.data.user));
-
-        window.location.href = `${DASHBOARD_URL}?token=${res.data.token}&username=${encodeURIComponent(
-          res.data.user.username,
-        )}&email=${encodeURIComponent(res.data.user.email)}`;
-      }, 1000);
+      if (!res.data.handoffCode) throw new Error("Account was created, but sign-in could not be completed. Please log in.");
+      window.location.replace(`${DASHBOARD_URL}?code=${encodeURIComponent(res.data.handoffCode)}`);
     } catch (err) {
-      console.log(err);
-
       setAlertType("danger");
 
       setAlertMessage(err.response?.data?.message || "Signup Failed");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -135,8 +130,8 @@ const Signup = () => {
               </div>
             </div>
 
-            <button type="submit" className="btn btn-primary w-100 py-2 fw-bold">
-              Sign Up
+            <button type="submit" className="btn btn-primary w-100 py-2 fw-bold" disabled={isSubmitting}>
+              {isSubmitting ? "Creating account…" : "Sign Up"}
             </button>
 
             <p className="text-center mt-3 mb-0">
