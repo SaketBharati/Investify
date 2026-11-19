@@ -1,5 +1,7 @@
 import { useState } from "react";
-import axios from "axios";
+import { Link } from "react-router-dom";
+import { api } from "../../api";
+import { DASHBOARD_URL } from "../../config";
 
 const Signup = () => {
   const [alertMessage, setAlertMessage] = useState("");
@@ -13,11 +15,14 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("https://investify-y1ph.onrender.com/signup", {
-        username,
-        email,
-        password,
-      });
+      const res = await api.post(
+        "https://investify-y1ph.onrender.com/signup",
+        {
+          username,
+          email,
+          password,
+        },
+      );
 
       setAlertType("success");
       setAlertMessage("Account created successfully");
@@ -75,7 +80,9 @@ const Signup = () => {
 
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <label className="form-label" htmlFor="signup-username">Username</label>
+              <label className="form-label" htmlFor="signup-username">
+                Username
+              </label>
 
               <input
                 type="text"
@@ -91,7 +98,9 @@ const Signup = () => {
             </div>
 
             <div className="mb-3">
-              <label className="form-label" htmlFor="signup-email">Email</label>
+              <label className="form-label" htmlFor="signup-email">
+                Email
+              </label>
 
               <input
                 type="email"
@@ -107,7 +116,9 @@ const Signup = () => {
             </div>
 
             <div className="mb-3">
-              <label className="form-label" htmlFor="signup-password">Password</label>
+              <label className="form-label" htmlFor="signup-password">
+                Password
+              </label>
 
               <div className="input-group">
                 <input
@@ -134,33 +145,29 @@ const Signup = () => {
               </div>
             </div>
 
-            <button type="submit" className="btn btn-primary w-100 py-2 fw-bold">
+            <button
+              type="submit"
+              className="btn btn-primary w-100 py-2 fw-bold"
+            >
               Sign Up
             </button>
 
             <p className="text-center mt-3 mb-0">
               Already have an account?{" "}
-              <a
-                href="/login"
-                className="auth-link"
-                style={{
-                  textDecoration: "none",
-                }}
-              >
+              <Link to="/login" className="auth-link">
                 Login
-              </a>
+              </Link>
             </p>
           </form>
           <hr />
 
-<p
-  className="text-center text-muted mb-0"
-  style={{ fontSize: "14px" }}
->
-  © 2026 Investify
-</p>
+          <p
+            className="text-center text-muted mb-0"
+            style={{ fontSize: "14px" }}
+          >
+            © 2026 Investify
+          </p>
         </div>
-        
       </div>
     </div>
   );
