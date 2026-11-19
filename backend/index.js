@@ -125,7 +125,7 @@ process.once("SIGINT", () => shutdown("SIGINT"));
 
 if (require.main === module) {
   start().catch(async (err) => {
-    console.error("API startup failed:", err?.name || "Error", err?.code || "");
+    console.error("API startup failed:", err);
     await mongoose.disconnect().catch(() => {});
     process.exit(1);
   });
