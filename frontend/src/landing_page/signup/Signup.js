@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { api } from "../../api";
+import { Link } from "react-router-dom";
 import { DASHBOARD_URL } from "../../config";
 
 const Signup = () => {
