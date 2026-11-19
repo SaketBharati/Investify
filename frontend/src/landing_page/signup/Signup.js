@@ -136,15 +136,13 @@ const Signup = () => {
 
             <p className="text-center mt-3 mb-0">
               Already have an account?{" "}
-              <a
-                href="/login"
+              <Link
+                to="/login"
                 className="auth-link"
-                style={{
-                  textDecoration: "none",
-                }}
+                style={{ textDecoration: "none" }}
               >
                 Login
-              </a>
+              </Link>
             </p>
           </form>
           <hr />
