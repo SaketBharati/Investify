@@ -7,8 +7,7 @@ const Login = () => {
   const [alertType, setAlertType] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] =
-  useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -24,8 +23,11 @@ const Login = () => {
       setAlertType("success");
       setAlertMessage("Login Successful");
 
-      if (!res.data.handoffCode) throw new Error("Sign-in could not be completed. Please try again.");
-      window.location.replace(`${DASHBOARD_URL}?code=${encodeURIComponent(res.data.handoffCode)}`);
+      if (!res.data.handoffCode)
+        throw new Error("Sign-in could not be completed. Please try again.");
+      window.location.replace(
+        `${DASHBOARD_URL}?code=${encodeURIComponent(res.data.handoffCode)}`,
+      );
     } catch (err) {
       setAlertType("danger");
 
@@ -39,138 +41,116 @@ const Login = () => {
 
   return (
     <div className="auth-page">
-    <div
-  className="container d-flex justify-content-center align-items-center"
-  style={{ minHeight: "85vh" }}
->
-  <div
-    className="card shadow auth-card p-4"
-    style={{
-      width: "100%",
-      maxWidth: "450px",
-      borderRadius: "20px",
-      border: "none",
-    }}
-  >
-    <img
-      src="media\images\logo.svg"
-      alt="Logo"
-      width="60"
-      className="d-block mx-auto mb-3"
-    />
-
-    <h3 className="text-center mb-4">
-      Welcome Back
-    </h3>
-    <p
-  className="text-center text-muted mb-4"
->
-  Sign in to access your portfolio
-</p>
-
-    {alertMessage && (
       <div
-        className={`alert alert-${alertType}`}
-        role="alert"
+        className="container d-flex justify-content-center align-items-center"
+        style={{ minHeight: "85vh" }}
       >
-        {alertMessage}
-      </div>
-    )}
-
-    <form onSubmit={handleSubmit}>
-      <div className="mb-3">
-        <label className="form-label" htmlFor="login-email">
-          Email
-        </label>
-
-        <input
-          type="email"
-          id="login-email"
-          name="email"
-          autoComplete="email"
-          className="form-control"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) =>
-            setEmail(e.target.value)
-          }
-          required
-        />
-      </div>
-
-      <div className="mb-3">
-        <label className="form-label" htmlFor="login-password">
-          Password
-        </label>
-
-        <div className="input-group">
-          <input
-            type={
-              showPassword
-                ? "text"
-                : "password"
-            }
-            id="login-password"
-            name="password"
-            autoComplete="current-password"
-            className="form-control"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) =>
-              setPassword(e.target.value)
-            }
-            required
-          />
-
-          <button
-            type="button"
-            className="btn btn-outline-secondary"
-            aria-label={showPassword ? "Hide password" : "Show password"}
-            aria-pressed={showPassword}
-            onClick={() =>
-              setShowPassword(
-                !showPassword
-              )
-            }
-          >
-            {showPassword
-              ? "Hide"
-              : "Show"}
-          </button>
-        </div>
-      </div>
-
-      <button
-        type="submit"
-        className="btn btn-primary w-100 py-2 fw-bold"
-        disabled={isSubmitting}
-      >
-        {isSubmitting ? "Signing in…" : "Login"}
-      </button>
-
-      <p className="text-center mt-3 mb-0">
-        Don't have an account?{" "}
-        <a
-          href="/signup" className="auth-link"
+        <div
+          className="card shadow auth-card p-4"
           style={{
-            textDecoration: "none",
+            width: "100%",
+            maxWidth: "450px",
+            borderRadius: "20px",
+            border: "none",
           }}
         >
-          Sign Up
-        </a>
-      </p>
-    </form>
-    <hr />
+          <img
+            src="media\images\logo.svg"
+            alt="Logo"
+            width="60"
+            className="d-block mx-auto mb-3"
+          />
 
-<p
-  className="text-center text-muted mb-0"
-  style={{ fontSize: "14px" }}
->
-  © 2026 Investify
-</p>
-  </div>
-  </div>
-</div>
+          <h3 className="text-center mb-4">Welcome Back</h3>
+          <p className="text-center text-muted mb-4">
+            Sign in to access your portfolio
+          </p>
+
+          {alertMessage && (
+            <div className={`alert alert-${alertType}`} role="alert">
+              {alertMessage}
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label className="form-label" htmlFor="login-email">
+                Email
+              </label>
+
+              <input
+                type="email"
+                id="login-email"
+                name="email"
+                autoComplete="email"
+                className="form-control"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label" htmlFor="login-password">
+                Password
+              </label>
+
+              <div className="input-group">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  id="login-password"
+                  name="password"
+                  autoComplete="current-password"
+                  className="form-control"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  aria-pressed={showPassword}
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className="btn btn-primary w-100 py-2 fw-bold"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Signing in…" : "Login"}
+            </button>
+
+            <p className="text-center mt-3 mb-0">
+              Don't have an account?{" "}
+              <Link
+                to="/signup"
+                className="auth-link"
+                style={{ textDecoration: "none" }}
+              >
+                Sign Up
+              </Link>
+            </p>
+          </form>
+          <hr />
+
+          <p
+            className="text-center text-muted mb-0"
+            style={{ fontSize: "14px" }}
+          >
+            © 2026 Investify
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
 
